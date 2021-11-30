@@ -22,6 +22,9 @@ onready var playerHPPlus = $"/root/PlayerStats"
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
 
+func _ready():
+	state = pick_random_state([IDLE, WANDER])
+
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200* delta)
 	knockback = move_and_slide(knockback)
@@ -41,12 +44,12 @@ func _physics_process(delta):
 				wanderController.start_wander_timer(rand_range(1,3))
 				
 			var direction = global_position.direction_to(wanderController.target_position)
-			velocity= velocity.move_toward(direction * MAX_SPEED / 1.2, ACCELERATION * delta)
+			velocity= velocity.move_toward(direction * MAX_SPEED / 1.5, ACCELERATION * delta)
 			
 			if global_position.distance_to(wanderController.target_position) <= 4:
 				state = pick_random_state([IDLE , WANDER])
 				wanderController.start_wander_timer(rand_range(1,3))
-			sprite.play("Angry")
+			sprite.play("IDLE")
 			sprite.flip_h = velocity.x < 0
 		CHASE:
 			var player = playerDetectionZone.player
@@ -78,5 +81,3 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position= global_position - Vector2(0 , -12)
-
-	
