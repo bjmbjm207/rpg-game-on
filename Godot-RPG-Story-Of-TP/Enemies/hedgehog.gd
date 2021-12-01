@@ -21,7 +21,6 @@ onready var hurtbox = $Hurtbox
 onready var playerHPPlus = $"/root/PlayerStats"
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
-
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
 
@@ -77,7 +76,8 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Stats_no_health():
 	playerHPPlus.health += 0.2
-	queue_free()
+	self.queue_free()
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position= global_position - Vector2(0 , -12)
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://y2mate.com - internet love  hnhngan lyrics video_v720P.webm" type="VideoStream" id=11]
+[ext_resource path="res://World/EnemyHog.gd" type="Script" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -567,7 +569,7 @@ tile_set = SubResource( 56 )
 cell_size = Vector2( 32, 32 )
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 5, -65534, 0, 196609, -65533, 0, 196609, -65532, 0, 196609, -65531, 0, 196610, -65529, 0, 0, -65528, 0, 1, -65527, 0, 2, 65535, 0, 65536, 0, 0, 65537, 1, 0, 65538, 7, 0, 65536, 8, 0, 65537, 9, 0, 65538, 131071, 0, 131072, 65536, 0, 131073, 65537, 0, 131074, 65543, 0, 131072, 65544, 0, 131073, 65545, 0, 131074, 196617, 0, 0, 196618, 0, 2, 262144, 0, 3, 262146, 0, 3, 262152, 0, 196608, 262153, 0, 262150, 262154, 0, 65538, 327680, 0, 196612, 327681, 0, 196609, 327682, 0, 196615, 327689, 0, 131072, 327690, 0, 131074 )
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 1, -65535, 0, 5, -65534, 0, 196609, -65533, 0, 196609, -65532, 0, 196609, -65531, 0, 196610, -65529, 0, 0, -65528, 0, 1, -65527, 0, 2, 65535, 0, 65536, 0, 0, 65537, 1, 0, 65538, 7, 0, 65536, 8, 0, 65537, 9, 0, 65538, 131071, 0, 131072, 65536, 0, 131073, 65537, 0, 131074, 65543, 0, 131072, 65544, 0, 131073, 65545, 0, 131074, 196617, 0, 0, 196618, 0, 2, 262144, 0, 3, 262146, 0, 3, 262152, 0, 196608, 262153, 0, 262150, 262154, 0, 65538, 327680, 0, 196612, 327681, 0, 196609, 327682, 0, 196615, 327689, 0, 131072, 327690, 0, 131074, 524287, 0, 3, 458761, 0, 3, 589817, 0, 196608, 589818, 0, 196609, 589819, 0, 196609, 589820, 0, 196609, 589821, 0, 196609, 589822, 0, 196609, 589823, 0, 196615, 524290, 0, 0, 524291, 0, 2, 524297, 0, 65539, 589826, 0, 65536, 589827, 0, 65538, 589833, 0, 65539, 655362, 0, 65540, 655363, 0, 196613, 655364, 0, 7, 655369, 0, 196612, 655370, 0, 6, 655371, 0, 2, 720898, 0, 131075, 720900, 0, 196612, 720901, 0, 7, 720906, 0, 131072, 720907, 0, 196613, 720908, 0, 196609, 720909, 0, 7, 786437, 0, 196612, 786438, 0, 7, 786445, 0, 196612, 786446, 0, 7, 851974, 0, 131075, 851982, 0, 131075 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 10 )]
 position = Vector2( 289.541, 72.3297 )
@@ -587,21 +589,23 @@ position = Vector2( 289.541, 72.3297 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="EnemyHog" type="YSort" parent="All"]
+position = Vector2( -0.00537109, 0.804289 )
+script = ExtResource( 12 )
 
 [node name="hedgehog" parent="All/EnemyHog" instance=ExtResource( 7 )]
-position = Vector2( 129.261, 215.88 )
+position = Vector2( 98.8326, 51.1218 )
 
 [node name="hedgehog2" parent="All/EnemyHog" instance=ExtResource( 7 )]
-position = Vector2( 231.599, 179.57 )
+position = Vector2( 418.857, 22.3855 )
 
 [node name="hedgehog3" parent="All/EnemyHog" instance=ExtResource( 7 )]
-position = Vector2( 171.585, 78.7952 )
+position = Vector2( 181.066, 100.449 )
 
 [node name="hedgehog4" parent="All/EnemyHog" instance=ExtResource( 7 )]
-position = Vector2( 409.355, 49.6109 )
+position = Vector2( 433.213, 162.804 )
 
 [node name="hedgehog5" parent="All/EnemyHog" instance=ExtResource( 7 )]
-position = Vector2( 393.229, 202.231 )
+position = Vector2( 142.139, 170.23 )
 
 [node name="Bushes" type="YSort" parent="All"]
 
@@ -728,6 +732,12 @@ margin_top = 0.0218277
 margin_right = 74.2074
 margin_bottom = 11.0218
 expand = true
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+visible = false
+margin_right = 480.0
+margin_bottom = 270.0
+stream = ExtResource( 11 )
 
 [editable path="Camera2D"]
 [editable path="CanvasLayer/HealthUI"]
