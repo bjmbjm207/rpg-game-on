@@ -64,7 +64,7 @@ animations = [ {
 
 [node name="EnemyDeathEffect" type="AnimatedSprite"]
 frames = SubResource( 11 )
-animation = "Animate"
+frame = 2
 script = ExtResource( 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

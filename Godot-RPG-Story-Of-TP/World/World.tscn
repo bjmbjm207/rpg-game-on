@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
 [ext_resource path="res://y2mate.com - internet love  hnhngan lyrics video_v720P.webm" type="VideoStream" id=11]
 [ext_resource path="res://World/EnemyHog.gd" type="Script" id=12]
+[ext_resource path="res://World/Timer.gd" type="Script" id=13]
+[ext_resource path="res://Enemies/Minataure.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -588,6 +590,11 @@ position = Vector2( 289.541, 72.3297 )
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="All/Player"]
 remote_path = NodePath("../../../Camera2D")
 
+[node name="Minataure" type="YSort" parent="All"]
+position = Vector2( 586.44, 77.6346 )
+
+[node name="Minataure" parent="All/Minataure" instance=ExtResource( 14 )]
+
 [node name="EnemyHog" type="YSort" parent="All"]
 position = Vector2( -0.00537109, 0.804289 )
 script = ExtResource( 12 )
@@ -606,6 +613,11 @@ position = Vector2( 433.213, 162.804 )
 
 [node name="hedgehog5" parent="All/EnemyHog" instance=ExtResource( 7 )]
 position = Vector2( 142.139, 170.23 )
+
+[node name="Timer" type="Timer" parent="All/EnemyHog"]
+wait_time = 5.0
+one_shot = true
+script = ExtResource( 13 )
 
 [node name="Bushes" type="YSort" parent="All"]
 
@@ -738,6 +750,9 @@ visible = false
 margin_right = 480.0
 margin_bottom = 270.0
 stream = ExtResource( 11 )
+
+[connection signal="respawn" from="All/EnemyHog/Timer" to="All/EnemyHog" method="_on_Timer_respawn"]
+[connection signal="show" from="All/Grasses/Grass5" to="All/Grasses/Grass5" method="_on_Grass5_show"]
 
 [editable path="Camera2D"]
 [editable path="CanvasLayer/HealthUI"]
