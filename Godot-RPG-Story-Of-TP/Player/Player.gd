@@ -64,7 +64,7 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("ATTACK"):
 		state= ATTACK
-	if Input.is_action_just_pressed("ROLL"):
+	if Input.is_action_just_pressed("ROLL") && stats.Level_1:
 		state= ROLL
 func attack_state(delta):
 	animationState.travel("Attack")
