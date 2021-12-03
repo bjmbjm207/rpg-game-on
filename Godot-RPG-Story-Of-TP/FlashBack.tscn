@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Flashback.webm" type="VideoStream" id=1]
+[ext_resource path="res://FlashBack.gd" type="Script" id=2]
+
+[node name="FlashBack" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_top = -27.0
+margin_right = 481.0
+margin_bottom = 272.0
+stream = ExtResource( 1 )
+autoplay = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]

@@ -86,6 +86,7 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 	var playerHurtSound = PlayerHurtSound.instance()
 	get_tree().current_scene.add_child(playerHurtSound)
+	blinkanimationPlayer.play("Start")
 func _on_Hurtbox_invincibility_started():
 	blinkanimationPlayer.play("Start")
 
