@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Enemies/Minataure.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resourse Steal/Forest Tileset.png" type="Texture" id=15]
 [ext_resource path="res://Master.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Enemies/Born2bSportyV2.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://World/QuestUI.gd" type="Script" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -625,6 +627,10 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 2/shapes = [  ]
 2/z_index = 0
 
+[sub_resource type="DynamicFont" id=58]
+size = 12
+font_data = ExtResource( 17 )
+
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
@@ -952,6 +958,20 @@ margin_top = 0.0218277
 margin_right = 74.2074
 margin_bottom = 11.0218
 expand = true
+
+[node name="QuestUI" type="Label" parent="CanvasLayer/HealthUI"]
+visible = false
+margin_left = 80.2953
+margin_top = -1.9024
+margin_right = 246.295
+margin_bottom = 12.0976
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 58 )
+text = "Nhat bi kip vo cong : Chua hoan thanh"
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 visible = false

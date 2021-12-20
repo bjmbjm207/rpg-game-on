@@ -3,6 +3,10 @@ extends Node
 export(float) var max_health = 3 setget set_max_health
 onready var health = max_health setget set_health
 var Level_1 = false
+var Level_2 = false
+var Level_3 = 0
+var Level_4 = false
+var Level_5 = false
 signal no_health
 signal health_changed(value)
 signal max_health_changed(value)

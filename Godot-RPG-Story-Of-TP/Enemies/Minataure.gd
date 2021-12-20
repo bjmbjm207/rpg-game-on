@@ -20,7 +20,7 @@ onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetection
 onready var hurtbox = $Hurtbox
-onready var playerHPPlus = $"/root/PlayerStats"
+onready var playerStats = $"/root/PlayerStats"
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
 func _ready():
@@ -77,7 +77,7 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
-	playerHPPlus.health += 3
+	playerStats.health += 3
 	self.queue_free()
 	var minataureDeathEffect = MinataureDeathEffect.instance()
 	get_parent().add_child(minataureDeathEffect)

@@ -21,8 +21,33 @@ func _input(event):
 			newTextbox.queue_text("Tieu Phong: Con vua di an bat bun bo")
 			newTextbox.queue_text("Master: Bay gio con da 25 tuoi roi")
 			newTextbox.queue_text("Master: Ta se cho con biet ve cai chet cua cha me con")
+			newTextbox.queue_text("Master: Ngay xua luc ta dang di o chan nui Nhac Mon Quan")
+			newTextbox.queue_text("Master: Ta da thay cha me con bi mot dam nguoi phuc kich va giet hai khong thuong xot")
+			newTextbox.queue_text("Master: Con thi duoc cha me de o chiec xe chan nui. Nen ta da mang con ve day cham soc")
+			newTextbox.queue_text("Tieu Phong: That khong the tin duoc. Con chac chan se tim ra chan tuong su viec va tra thu cho cha me")
+			newTextbox.queue_text("Master: Bay gio ta se day mot vai vo cong quan trong cho con de con vung buoc tren hanh trinh cua minh")
+			newTextbox.queue_text("Tieu Phong: Vang thua su phu")
+			newTextbox.queue_text("Master: Con hay len khu rung phia bac va tim kiem bi kip vo cong Lon nhao than chuong ta giau trong cac dam co")
+			newTextbox.queue_text("Master: Can than bon nhim se tan cong con. Day la thu thach dau tien cua con")
+			newTextbox.queue_text("Tieu Phong: Vang thua su phu. Con se di lam ngay")
 			get_parent().get_parent().add_child(newTextbox)
-
+		if stats.Level_1 ==true and stats.Level_2 == false:
+			var newTextbox = newTextBox.instance()
+			newTextbox.queue_text("Master: Bay gio con co the su dung phim Q de dung ki nang lon nhao")
+			newTextbox.queue_text("Master: No se giup con di chuyen nhanh hon de tranh quai vat")
+			stats.Level_3 = 0
+			get_parent().get_parent().add_child(newTextbox)
+		if stats.Level_2 ==true and stats.Level_3 <5 :
+			var newTextbox = newTextBox.instance()
+			newTextbox.queue_text("Master: Nhiem vu dau tien danh cho con. Tieu diet 5 con nhim tren khu rung phia Bac")
+			get_parent().get_parent().add_child(newTextbox)
+		if stats.Level_3 >=5 and stats.Level_4 == false:
+			var newTextbox = newTextBox.instance()
+			newTextbox.queue_text("Master: Con da lam rat tot nhiem vu")
+			newTextbox.queue_text("Master: Vi chang duong phia truoc con dai")
+			newTextbox.queue_text("Master: Con nen tim ban dong hanh, de chuyen hanh trinh phia truoc bot gian nan hon")
+			get_parent().get_parent().add_child(newTextbox)
+		
 
 func _on_NPC_body_entered(body):
 	if body.name == 'Player':
