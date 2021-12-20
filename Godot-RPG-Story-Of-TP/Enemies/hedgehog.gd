@@ -19,7 +19,7 @@ onready var sprite = $AnimatedSprite
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetection
 onready var hurtbox = $Hurtbox
-onready var playerStats = $"/root/PlayerStats"
+onready var playerStats = PlayerStats
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
 func _ready():

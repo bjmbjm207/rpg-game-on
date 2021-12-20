@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=1]
 [ext_resource path="res://Resourse Steal/Shardsoul Slayer Sprite Sheet.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Hurtbox and Hitbox/Hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Hurtbox and Hitbox/SoftCollision.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemies/Born2bSportyV2.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -90,6 +91,31 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 448, 64, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 128, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 128, 64, 64 )
+
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 2 )
@@ -120,31 +146,6 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 320, 256, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 64, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 192, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 256, 128, 64, 64 )
-
 [sub_resource type="SpriteFrames" id=28]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
@@ -157,14 +158,14 @@ animations = [ {
 "name": "Move",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": false,
-"name": "Die",
-"speed": 7.0
-}, {
 "frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
 "name": "Attack",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"loop": false,
+"name": "Die",
 "speed": 7.0
 } ]
 
@@ -184,6 +185,10 @@ radius = 19.3526
 
 [sub_resource type="CircleShape2D" id=33]
 radius = 16.2272
+
+[sub_resource type="DynamicFont" id=34]
+size = 12
+font_data = ExtResource( 10 )
 
 [node name="Minataure" type="KinematicBody2D"]
 position = Vector2( -0.486809, -0.753356 )
@@ -245,6 +250,18 @@ position = Vector2( -0.570694, 17.707 )
 shape = SubResource( 33 )
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = -9.51319
+margin_top = -12.2466
+margin_right = 18.4868
+margin_bottom = -0.246643
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 34 )
+text = "Garou"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]

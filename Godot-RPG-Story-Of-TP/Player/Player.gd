@@ -16,7 +16,7 @@ enum {
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
-var stats = PlayerStats
+var playerStats = PlayerStats
 
 
 onready var animationPlayer = $AnimationPlayer
@@ -28,7 +28,7 @@ onready var blinkanimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
 	randomize()
-	stats.connect("no_health",self , "queue_free")
+	playerStats.connect("no_health",self , "queue_free")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
 func _process(delta):
@@ -64,9 +64,9 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("ATTACK"):
 		state= ATTACK
-	if Input.is_action_just_pressed("ROLL") && stats.Level_1:
+	if Input.is_action_just_pressed("ROLL") && playerStats.Level_1:
 		state= ROLL
-		stats.Level_2 = true
+		playerStats.Level_2 = true
 func attack_state(delta):
 	animationState.travel("Attack")
 func roll_state(delta):
@@ -81,8 +81,8 @@ func attack_animation_finished():
 	state= MOVE
 
 func _on_Hurtbox_area_entered(area):
-	stats.health -= area.damage
-	print(stats.Level_1)
+	playerStats.health -= area.damage
+	print(playerStats.Level_1)
 	hurtbox.start_invincibility(0.5)
 	hurtbox.create_hit_effect()
 	var playerHurtSound = PlayerHurtSound.instance()
