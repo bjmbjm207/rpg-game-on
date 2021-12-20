@@ -24,7 +24,7 @@ func _process(delta):
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		get_tree().change_scene_to(load("res://World/World.tscn"))
+		get_tree().change_scene_to(load("res://FlashBack.tscn"))
 		queue_free()
 	elif _current_selection == 1:
 		print("Load Game")

@@ -2,7 +2,6 @@ extends Area2D
 
 var active = false 
 onready var playerStats = PlayerStats
-onready var QuestUI = $"../../CanvasLayer/HealthUI/QuestUI"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
