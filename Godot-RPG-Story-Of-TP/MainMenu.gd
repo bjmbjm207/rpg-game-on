@@ -6,7 +6,7 @@ onready var selector_two = $CenterContainer/VBoxContainer/CenterContainer2/VBoxC
 onready var selector_three = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
 onready var selector_four = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer5/HBoxContainer/Selector
 onready var selector_five = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector
-
+const SelectorSound = preload("res://SelectorSound.tscn")
 var current_selection = 0
 
 func _ready():
@@ -16,11 +16,17 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_down") and current_selection < 4:
 		current_selection += 1
 		set_current_selection(current_selection)
+		var selectorSound = SelectorSound.instance()
+		get_tree().current_scene.add_child(selectorSound)
 	elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
 		current_selection -= 1
 		set_current_selection(current_selection)
+		var selectorSound = SelectorSound.instance()
+		get_tree().current_scene.add_child(selectorSound)
 	elif Input.is_action_just_pressed("ui_accept"):
 		handle_selection(current_selection)
+		var selectorSound = SelectorSound.instance()
+		get_tree().current_scene.add_child(selectorSound)
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
