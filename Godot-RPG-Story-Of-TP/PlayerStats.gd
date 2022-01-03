@@ -7,6 +7,7 @@ var Level_2 = false
 var Level_3 = 0
 var Level_4 = false
 var Level_5 = false
+onready var timer = $"Timer"
 signal no_health
 signal health_changed(value)
 signal max_health_changed(value)
@@ -22,6 +23,8 @@ func set_health(value):
 	emit_signal("health_changed", health)
 	if health <=0:
 		emit_signal("no_health")
+		timer.start(4)
+		print("Choi lai sau 4s")
 func _ready():
 	self.health = max_health
 

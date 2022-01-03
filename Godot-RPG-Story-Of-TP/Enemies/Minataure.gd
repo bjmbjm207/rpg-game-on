@@ -6,7 +6,7 @@ export var FRICTION = 200
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 const MinataureDeathEffect = preload("res://Effects/MinataureDeathEffect.tscn")
 var velocity = Vector2.ZERO
-
+export var HPP = 0
 enum {
 	IDLE,
 	WANDER,
@@ -77,9 +77,10 @@ func _on_Hurtbox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func _on_Stats_no_health():
-	playerStats.health += 3
+	playerStats.health += HPP
 	self.queue_free()
 	var minataureDeathEffect = MinataureDeathEffect.instance()
+	minataureDeathEffect.play("Minataure")
 	get_parent().add_child(minataureDeathEffect)
 	minataureDeathEffect.global_position= global_position 
 	var timer = $"../Timer"

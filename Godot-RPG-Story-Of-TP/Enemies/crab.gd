@@ -3,7 +3,6 @@ extends KinematicBody2D
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
-const EffectDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 const MinataureDeathEffect = preload("res://Effects/MinataureDeathEffect.tscn")
 var velocity = Vector2.ZERO
 
@@ -78,11 +77,10 @@ func _on_Hurtbox_area_entered(area):
 
 func _on_Stats_no_health():
 	playerStats.health += 0.2
-	playerStats.Level_3 += 1
-	print(playerStats.Level_3)
 	self.queue_free()
-	var enemyDeathEffect = EffectDeathEffect.instance()
+	var enemyDeathEffect = MinataureDeathEffect.instance()
+	enemyDeathEffect.play("Crab")
 	get_parent().add_child(enemyDeathEffect)
-	enemyDeathEffect.global_position= global_position - Vector2(0 , -12)
+	enemyDeathEffect.global_position= global_position - Vector2(0 , -3)
 	var timer = $"../Timer"
 	timer.want_to_respawn()

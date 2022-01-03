@@ -1,7 +1,7 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=1]
-[ext_resource path="res://Resourse Steal/Porcupine Sprite Sheet.png" type="Texture" id=2]
+[ext_resource path="res://Resourse Steal/Crab Sprite Sheet.png" type="Texture" id=2]
 [ext_resource path="res://Hurtbox and Hitbox/Hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/hedgehog.gd" type="Script" id=4]
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
@@ -10,112 +10,87 @@
 [ext_resource path="res://Hurtbox and Hitbox/SoftCollision.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=9]
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 96, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 96, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 128, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 32, 128, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=31]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=33]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=34]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=35]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "IDLE",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
 "name": "Angry",
 "speed": 7.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "Move",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=19]
-radius = 2.7126
-height = 10.2402
+radius = 1.99999
+height = 8.00002
 
 [sub_resource type="CapsuleShape2D" id=20]
 radius = 5.43284
@@ -124,26 +99,23 @@ height = 0.0
 [sub_resource type="CircleShape2D" id=21]
 radius = 65.0052
 
-[sub_resource type="CircleShape2D" id=22]
-radius = 6.43089
+[sub_resource type="CapsuleShape2D" id=36]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id=23]
 radius = 5.55355
 
-[node name="hedgehog" type="KinematicBody2D"]
+[node name="Crab" type="KinematicBody2D"]
 position = Vector2( -0.486809, -0.753356 )
 collision_layer = 16
 collision_mask = 3
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.270103, 0.0334129 )
 frames = SubResource( 18 )
-animation = "IDLE"
-frame = 2
+animation = "Angry"
+frame = 1
 playing = true
 
 [node name="Shadow" type="Sprite" parent="."]
@@ -152,11 +124,14 @@ position = Vector2( -0.403778, 15.7663 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.46612, 14.1422 )
+visible = false
+position = Vector2( 0.486809, 11.7534 )
 rotation = 1.5708
 shape = SubResource( 19 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0.486809, 2.75336 )
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -166,6 +141,8 @@ shape = SubResource( 20 )
 [node name="Stats" parent="." instance=ExtResource( 5 )]
 
 [node name="PlayerDetection" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0.486809, 0.753357 )
 
 [node name="CollisionShape2D" parent="PlayerDetection" index="0"]
 modulate = Color( 1, 1, 1, 0.2 )
@@ -173,12 +150,15 @@ position = Vector2( -0.515503, 11.3413 )
 shape = SubResource( 21 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 1.48681, 38.7534 )
 collision_mask = 4
 damage = 0.2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( -0.642189, 8.80696 )
-shape = SubResource( 22 )
+position = Vector2( -1, -29 )
+rotation = 1.5708
+shape = SubResource( 36 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 8 )]
 
@@ -187,6 +167,7 @@ position = Vector2( 0, 12 )
 shape = SubResource( 23 )
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
